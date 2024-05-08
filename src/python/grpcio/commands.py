@@ -194,14 +194,15 @@ def try_cythonize(extensions, linetracing=False, mandatory=True):
             include_dir for extension in extensions
             for include_dir in extension.include_dirs
         ] + [CYTHON_STEM],
-        compiler_directives=cython_compiler_directives)
+        compiler_directives=cython_compiler_directives,
+        emit_linenums=True)
 
 
 class BuildExt(build_ext.build_ext):
     """Custom build_ext command to enable compiler-specific flags."""
 
     C_OPTIONS = {
-        'unix': ('-pthread',),
+        'unix': ('-pthread','-g3'),
         'msvc': (),
     }
     LINK_OPTIONS = {}
