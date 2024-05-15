@@ -505,8 +505,8 @@ except ImportError:
             "other commands, but the extension files will fail to build.\n")
     elif need_cython:
         sys.stderr.write(
-            'We could not find Cython. Setup may take 10-20 minutes.\n')
-        SETUP_REQUIRES += ('cython>=0.23',)
+            "We could not find Cython. Setup may take 10-20 minutes.\n")
+        SETUP_REQUIRES += ("cython>=0.23,<3",)
 
 COMMAND_CLASS = {
     'doc': commands.SphinxDocumentation,
